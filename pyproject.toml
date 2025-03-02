@@ -1,0 +1,21 @@
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "diffusion_mnist"
+version = "0.1.0"
+description = "Diffusion model for MNIST image generation"
+authors = [
+    { name = "yukoga" }
+]
+license = { text = "Apache-2.0" }
+dependencies = [
+    "numpy",
+    "torch",
+    "torchvision",
+    "matplotlib"
+]
+
+[tool.setuptools.packages.find]
+where = ["diffusion_mnist"]
