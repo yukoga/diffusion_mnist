@@ -1,4 +1,5 @@
 [build-system]
+requires-python = ">=3.11"
 requires = ["setuptools", "wheel"]
 build-backend = "setuptools.build_meta"
 
@@ -17,8 +18,10 @@ dependencies = [
     "matplotlib"
 ]
 
-[project.optional-dependencies]
-test = ["pytest"]
-
 [tool.setuptools.packages.find]
 where = ["diffusion_mnist"]
+
+[tool.uv]
+dev-dependencies = [
+    "pytest>=8.3.5",
+]
