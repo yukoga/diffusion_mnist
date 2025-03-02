@@ -17,10 +17,31 @@ from torch.utils.data import DataLoader
 
 
 class Dataset():
+    """
+    MNIST Dataset class.
+
+    Loads the MNIST dataset from torchvision.datasets and applies transformations.
+    """
     def __init__(self, is_train=True):
+        """
+        Initialize the Dataset.
+
+        Args:
+            is_train (bool): If True, loads the training dataset, otherwise loads the test dataset.
+        """
         self.train = is_train
 
     def __call__(self):
+        """
+        Returns the MNIST dataset.
+
+        Applies the following transformations:
+            - ToTensor: Converts PIL Image or numpy.ndarray to tensor.
+            - Lambda: Flattens the image tensor to a 1D vector.
+
+        Returns:
+            datasets.MNIST: MNIST dataset with transformations applied.
+        """
         transform = transforms.Compose([
             transforms.ToTensor(),
             transforms.Lambda(lambda x: x.view(-1))
@@ -35,10 +56,30 @@ class Dataset():
 
 
 class MNISTDataLoader():
+    """
+    MNIST DataLoader class.
+
+    Creates a DataLoader for the MNIST dataset.
+    """
     def __init__(self):
+        """
+        Initialize the MNISTDataLoader.
+        Currently, no specific initialization is needed.
+        """
         pass
 
     def __call__(self, is_train=True, batch_size=128, shuffle=True):
+        """
+        Returns the MNIST DataLoader.
+
+        Args:
+            is_train (bool): If True, loads the training dataset, otherwise loads the test dataset.
+            batch_size (int): Batch size for the DataLoader.
+            shuffle (bool): If True, shuffles the data in the DataLoader.
+
+        Returns:
+            DataLoader: MNIST DataLoader.
+        """
         dataset = Dataset(is_train=is_train)
         return DataLoader(
             dataset=dataset(),
