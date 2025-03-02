@@ -1,15 +1,6 @@
-from setuptools import setup, find_packages
+# Apache 2.0 License
 
-setup(
-    name='diffusion_mnist',
-    version='0.1.0',
-    author='yukoga',
-    license='Apache-2.0',
-    packages=find_packages(where='diffusion_mnist'),
-    install_requires=[
-        'numpy',
-        'torch',
-        'torchvision',
-        'matplotlib'
-    ],
-)
+from setuptools import setup
+
+if __name__ == "__main__":
+    setup()
